@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+/* Palette CoursPlus (identique au site d'origine) */
+@theme {
+  --color-navy: #17243b;
+  --color-navy-dark: #111c2e;
+  --color-navy-soft: #243957;
+  --color-brand: #d83a35;
+  --color-brand-dark: #b92f2f;
+  --color-brand-soft: #f9dddd;
+  --color-paper: #f8f7f4;
+  --font-sans: Inter, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-navy);
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"] {
+    cursor: pointer;
+  }
+}

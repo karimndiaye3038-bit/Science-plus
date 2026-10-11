@@ -1,0 +1,17 @@
+{
+  "name": "CoursPlus",
+  "short_name": "CoursPlus",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#17243B",
+  "theme_color": "#17243B",
+  "description": "Plateforme de cours en ligne",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
