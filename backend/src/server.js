@@ -16,6 +16,13 @@ import { uploadsDir, MAX_UPLOAD_MB } from './middlewares/upload.js'
 
 const app = express()
 
+app.get("/", (req, res) => {
+  res.json({
+    message: "Bienvenue sur l'API Science Plus",
+    status: "Serveur opérationnel"
+  });
+});
+
 // ==========================================
 // CORS
 // ==========================================
