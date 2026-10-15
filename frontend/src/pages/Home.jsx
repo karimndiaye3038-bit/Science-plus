@@ -37,7 +37,7 @@ export default function Home() {
             Apprendre.<br />Comprendre.<br /><span className="text-brand">Réussir.</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-            CoursPlus permet aux élèves d’accéder facilement à leurs cours en vidéo
+            SciencePlus permet aux élèves d’accéder facilement à leurs cours en vidéo
             et au professeur de gérer ses contenus, ses élèves et ses paiements.
           </p>
 
@@ -138,12 +138,271 @@ export default function Home() {
         </section>
       )}
 
-      {/* CONTACT */}
-      <section id="contact" className="px-5 py-20 text-center">
-        <h2 className="text-3xl font-extrabold">Une plateforme simple pour apprendre.</h2>
-        <p className="mt-3 text-slate-600">Le professeur gère. L’élève apprend. CoursPlus connecte les deux.</p>
-        <Link to="/inscription" className={`${btnClass('red')} mt-7`}>Créer mon compte gratuitement</Link>
-      </section>
+    
+     
+
+{/* Section À propos */}
+<section
+  id="apropos"
+  className="bg-slate-50 px-5 py-20"
+>
+  <div className="mx-auto max-w-4xl text-center">
+    <h2 className="text-3xl font-extrabold text-slate-900">
+      À propos de CoursPlus
+    </h2>
+
+    <p className="mt-5 leading-8 text-slate-600">
+      CoursPlus est une plateforme éducative conçue pour faciliter
+      l’apprentissage et rendre les cours accessibles à tous les élèves.
+      Notre objectif est de permettre aux élèves d’apprendre à leur rythme,
+      de renforcer leurs connaissances et de mieux préparer leurs examens.
+    </p>
+
+    <p className="mt-4 leading-8 text-slate-600">
+      Grâce à CoursPlus, les élèves peuvent consulter des cours,
+      accéder à des vidéos pédagogiques et télécharger des documents
+      pour approfondir leurs connaissances. Les contenus sont organisés
+      par niveau scolaire afin de faciliter la recherche et la compréhension.
+    </p>
+
+    <p className="mt-4 leading-8 text-slate-600">
+      La plateforme permet également aux professeurs de partager leurs
+      connaissances, de publier des ressources pédagogiques et d’accompagner
+      les élèves dans leur parcours scolaire.
+    </p>
+
+    <p className="mt-4 font-semibold text-slate-800">
+      CoursPlus : apprendre aujourd’hui pour réussir demain.
+    </p>
+  </div>
+</section>
+
+{/* Section Contact */}
+<section
+  id="contact"
+  className="bg-white px-5 py-20"
+>
+  <div className="mx-auto max-w-[1200px]">
+
+    {/* En-tête */}
+    <div className="mb-12 text-center">
+      <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl">
+        Contactez-nous
+      </h2>
+
+      <p className="mx-auto mt-4 max-w-2xl leading-7 text-slate-600">
+        Une question sur les cours, les inscriptions ou le fonctionnement
+        de la plateforme ? Notre équipe est disponible pour vous accompagner.
+      </p>
+    </div>
+
+    {/* Deux colonnes */}
+    <div className="grid gap-10 lg:grid-cols-2">
+
+      {/* Informations */}
+      <div className="rounded-2xl bg-slate-50 p-8 sm:p-10">
+
+        <h3 className="text-2xl font-bold text-slate-900">
+          Parlons de votre projet
+        </h3>
+
+        <p className="mt-4 leading-7 text-slate-600">
+          N'hésitez pas à nous contacter. Nous serons heureux de répondre
+          à vos questions et de vous aider à utiliser CoursPlus.
+        </p>
+
+        {/* Téléphone */}
+        <div className="mt-8 flex items-start gap-4">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm">
+            <span className="text-lg">📞</span>
+          </div>
+
+          <div>
+            <p className="text-sm font-medium text-slate-500">
+              Téléphone
+            </p>
+
+            <a
+              href="tel:+221773770774"
+              className="mt-1 block font-semibold text-slate-900 transition hover:text-green-600"
+            >
+              77 377 07 74
+            </a>
+          </div>
+        </div>
+
+        {/* WhatsApp */}
+        <div className="mt-6 flex items-start gap-4">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm">
+            <span className="text-lg">💬</span>
+          </div>
+
+          <div>
+            <p className="text-sm font-medium text-slate-500">
+              WhatsApp
+            </p>
+
+            <a
+              href="https://wa.me/221773770774"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 block font-semibold text-slate-900 transition hover:text-green-600"
+            >
+              Nous écrire sur WhatsApp
+            </a>
+          </div>
+        </div>
+
+        {/* Email */}
+        <div className="mt-6 flex items-start gap-4">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm">
+            <span className="text-lg">✉️</span>
+          </div>
+
+          <div>
+            <p className="text-sm font-medium text-slate-500">
+              Email
+            </p>
+
+            <a
+              href="mailto:contact@coursplus.sn"
+              className="mt-1 block font-semibold text-slate-900 transition hover:text-green-600"
+            >
+              contact@coursplus.sn
+            </a>
+          </div>
+        </div>
+
+        {/* Localisation */}
+        <div className="mt-6 flex items-start gap-4">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm">
+            <span className="text-lg">📍</span>
+          </div>
+
+          <div>
+            <p className="text-sm font-medium text-slate-500">
+              Localisation
+            </p>
+
+            <p className="mt-1 font-semibold text-slate-900">
+              Dakar, Sénégal
+            </p>
+          </div>
+        </div>
+
+        {/* WhatsApp bouton */}
+        <a
+          href="https://wa.me/221773770774"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-10 inline-flex w-full items-center justify-center rounded-lg bg-green-600 px-6 py-3 font-semibold text-white transition hover:bg-green-700"
+        >
+          Nous contacter sur WhatsApp
+        </a>
+      </div>
+
+      {/* Formulaire */}
+      <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+
+        <h3 className="text-2xl font-bold text-slate-900">
+          Envoyez-nous un message
+        </h3>
+
+        <p className="mt-2 text-sm leading-6 text-slate-600">
+          Remplissez le formulaire ci-dessous et nous vous répondrons
+          dans les meilleurs délais.
+        </p>
+
+        <form className="mt-8 space-y-5">
+
+          {/* Nom */}
+          <div>
+            <label
+              htmlFor="name"
+              className="mb-2 block text-sm font-medium text-slate-700"
+            >
+              Nom complet
+            </label>
+
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Votre nom complet"
+              className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+            />
+          </div>
+
+          {/* Email */}
+          <div>
+            <label
+              htmlFor="email"
+              className="mb-2 block text-sm font-medium text-slate-700"
+            >
+              Adresse email
+            </label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="exemple@email.com"
+              className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+            />
+          </div>
+
+          {/* Sujet */}
+          <div>
+            <label
+              htmlFor="subject"
+              className="mb-2 block text-sm font-medium text-slate-700"
+            >
+              Sujet
+            </label>
+
+            <input
+              id="subject"
+              name="subject"
+              type="text"
+              placeholder="Objet de votre message"
+              className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+            />
+          </div>
+
+          {/* Message */}
+          <div>
+            <label
+              htmlFor="message"
+              className="mb-2 block text-sm font-medium text-slate-700"
+            >
+              Message
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Écrivez votre message..."
+              className="w-full resize-none rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100"
+            />
+          </div>
+
+          {/* Bouton */}
+          <button
+            type="submit"
+            className="w-full rounded-lg bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-800"
+          >
+            Envoyer le message
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
     </div>
   )
 }

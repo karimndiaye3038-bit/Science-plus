@@ -14,30 +14,43 @@ export default function PaymentModal({ course, onClose, onDone }) {
 
   const selected = PAYMENT_METHODS.find(m => m.id === method)
 
-  async function submit(e) {
-    e.preventDefault()
-    setError('')
-    setLoading(true)
-    try {
-      const data = await send('/payments', {
-        courseId: course._id,
-        method,
-        phone: selected.phone ? phone.trim() : undefined
-      })
-      // Paiement en ligne (carte, Wave...) : le serveur renvoie le lien de la page de paiement
-      if (data.paymentUrl) {
-        window.location.href = data.paymentUrl
-        return
-      }
-      setResult(data)
-      onDone?.()
-    } catch (err) {
-      setError(err.message)
-    } finally {
-      setLoading(false)
-    }
-  }
+async function submit(e) {
+  e.preventDefault()
 
+  setError('')
+  setLoading(true)
+
+  try {
+    const data = await send('/payments', {
+      courseId: course._id,
+      method: 'wave'
+    })
+
+    // Le backend a reconnu un cours gratuit.
+    if (data.freeAccess) {
+      setResult({
+        message: 'Ce cours est gratuit. Tu peux y accéder.'
+      })
+
+      onDone?.(data)
+      return
+    }
+
+    // Un cours payant doit ouvrir la page officielle Wave.
+    if (data.paymentUrl) {
+      window.location.assign(data.paymentUrl)
+      return
+    }
+
+    throw new Error('Aucune URL de paiement reçue.')
+  } catch (err) {
+    setError(err.message || 'Impossible de lancer le paiement.')
+  } finally {
+    setLoading(false)
+  }
+}
+
+  
   if (result) {
     const confirmed = result.payment?.status === 'valide'
     return (

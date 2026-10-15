@@ -75,27 +75,78 @@ export default function CourseDetail() {
       </section>
 
       <div className="mx-auto grid max-w-[1200px] gap-8 px-5 py-10 lg:grid-cols-[1fr_340px]">
-        <section>
-          <h2 className="mb-4 text-2xl font-extrabold">Programme du cours</h2>
-          {chapters.length ? (
-            <ol className="space-y-3">
-              {chapters.map((chapter, i) => (
-                <li key={chapter._id || i} className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand-soft text-sm font-black text-brand-dark">{i + 1}</span>
-                  <span className="flex-1 font-bold">{chapter.title}</span>
-                  <span className="shrink-0 text-sm text-slate-500">
-                    {(chapter.videoUrl || chapter.hasVideo) && '🎬 '}
-                    {(chapter.filesCount ?? chapter.files?.length ?? 0) > 0 && `📎 ${chapter.filesCount ?? chapter.files.length}`}
-                  </span>
-                </li>
-              ))}
-            </ol>
-          ) : (
-            <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center text-slate-500">
-              Les chapitres seront bientôt disponibles.
-            </div>
-          )}
-        </section>
+      
+<section>
+  <h2 className="mb-4 text-2xl font-extrabold">
+    Programme du cours
+  </h2>
+
+  {chapters.length ? (
+    <ol className="space-y-4">
+      {chapters.map((chapter, i) => (
+        <li
+          key={chapter._id || i}
+          className="overflow-hidden rounded-2xl border border-slate-200 bg-white"
+        >
+          {/* Titre du chapitre */}
+          <div className="flex items-center gap-4 bg-slate-50 p-4">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand-soft text-sm font-black text-brand-dark">
+              {i + 1}
+            </span>
+
+            <h3 className="flex-1 font-extrabold">
+              {chapter.title}
+            </h3>
+
+            <span className="text-xs text-slate-500">
+              {chapter.sections?.length || 0} partie(s)
+            </span>
+          </div>
+
+          {/* Grandes parties */}
+          <div className="space-y-3 p-4">
+            {chapter.sections?.length > 0 ? (
+              chapter.sections.map((section, j) => (
+                <div
+                  key={section._id || j}
+                  className="rounded-xl border border-slate-100 p-4"
+                >
+                  <h4 className="font-bold text-brand-dark">
+                    Grand {['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'][j] || j + 1}
+                    {' — '}
+                    {section.title}
+                  </h4>
+
+                  {section.content && (
+                    <p className="mt-2 whitespace-pre-line text-sm leading-6 text-slate-600">
+                      {section.content}
+                    </p>
+                  )}
+
+                  <div className="mt-3 flex flex-wrap gap-3 text-xs font-semibold text-slate-500">
+                    {section.videoUrl && <span>🎬 Vidéo disponible</span>}
+                    {section.files?.length > 0 && (
+                      <span>📎 {section.files.length} fichier(s)</span>
+                    )}
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p className="text-sm text-slate-500">
+                Les grandes parties de ce chapitre seront bientôt disponibles.
+              </p>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  ) : (
+    <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center text-slate-500">
+      Les chapitres seront bientôt disponibles.
+    </div>
+  )}
+</section>
+
 
         <aside>
           <div className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm lg:sticky lg:top-24">

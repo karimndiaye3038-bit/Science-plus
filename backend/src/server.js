@@ -3,6 +3,8 @@ import express from 'express'
 import cors from 'cors'
 import bcrypt from 'bcryptjs'
 
+import { waveWebhook } from './controllers/waveWebhookController.js'
+
 import connectDB from './config/db.js'
 import User from './models/User.js'
 
@@ -79,7 +81,11 @@ app.use('/api/auth', authRoutes)
 app.use('/api/courses', courseRoutes)
 
 app.use('/api/admin', adminRoutes)
-
+app.post(
+  '/api/payments/wave/webhook',
+  express.raw({ type: 'application/json' }),
+  waveWebhook
+)
 app.use('/api/payments', paymentRoutes)
 
 app.use('/api/students', studentRoutes)
